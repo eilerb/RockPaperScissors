@@ -23,7 +23,7 @@ function playRound(playerSelection, computerSelection) {
     const str6 = "You Win! Rock beats Scissors";
     const str7 = "You Win! Scissors beat Paper";
 
-    if (playerSelection.toLowerCase() == computerSelection.toLowerCase) {
+    if (playerSelection.toLowerCase() == computerSelection.toLowerCase()) {
         return str1;
     } else if (playerSelection.toLowerCase() == "rock" && computerSelection == "Paper") {
         return str1;
