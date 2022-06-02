@@ -7,9 +7,9 @@ function computerPlay() {
 
     if (rand === 0) {
         return a;
-    }else if (rand === 1) {
+    } else if (rand === 1) {
         return b;
-    }else {
+    } else {
         return c;
     }
 }
