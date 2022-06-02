@@ -39,3 +39,7 @@ function playRound(playerSelection, computerSelection) {
         return str3;
     }
  }
+
+ const playerSelection = "rock";
+ const computerSelection = computerPlay();
+ console.log(playRound(playerSelection, computerSelection));
