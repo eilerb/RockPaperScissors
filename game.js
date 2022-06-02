@@ -21,25 +21,25 @@ function playRound(playerSelection, computerSelection) {
     const str4 = "You Lose! Scissors beat Paper";
     const str5 = "You Win! Paper beats Rock";
     const str6 = "You Win! Rock beats Scissors";
-    const str7 = "You Win! Scissors beat Paper"; 
+    const str7 = "You Win! Scissors beat Paper";
 
-    if (playerSelection.toLowerCase === computerSelection.toLowerCase) {
+    if (playerSelection.toLowerCase() == computerSelection.toLowerCase) {
         return str1;
-    } else if (playerSelection.toLowerCase === "rock" && computerSelection === "Paper") {
+    } else if (playerSelection.toLowerCase() == "rock" && computerSelection() == "Paper") {
         return str1;
-    } else if (playerSelection.toLowerCase === "rock" && computerSelection === "Scissors") {
+    } else if (playerSelection.toLowerCase() == "rock" && computerSelection() == "Scissors") {
         return str6;
-    } else if (playerSelection.toLowerCase === "paper" && computerSelection === "Rock") {
-        return str5
-    } else if (playerSelection.toLowerCase === "paper" && computerSelection === "Scissors") {
+    } else if (playerSelection.toLowerCase() == "paper" && computerSelection() == "Rock") {
+        return str5;
+    } else if (playerSelection.toLowerCase() == "paper" && computerSelection() == "Scissors") {
         return str4;
-    } else if (playerSelection.toLowerCase === "scissors" && computerSelection === "Paper") {
+    } else if (playerSelection.toLowerCase() == "scissors" && computerSelection() == "Paper") {
         return str7;
-    } else if (playerSelection.toLowerCase === "scissors" && computerSelection === "Rock") {
+    } else if (playerSelection.toLowerCase() == "scissors" && computerSelection() == "Rock") {
         return str3;
     }
- }
+}
 
- const playerSelection = "rock";
- const computerSelection = computerPlay();
- console.log(playRound(playerSelection, computerSelection));
+const playerSelection = "Paper";
+const computerSelection = computerPlay();
+console.log(playRound(playerSelection, computerSelection));
