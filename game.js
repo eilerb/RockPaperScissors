@@ -23,20 +23,22 @@ const str6 = "You Win! Rock beats Scissors";
 const str7 = "You Win! Scissors beat Paper";
 
 function playRound(playerSelection, computerSelection) {
+    playerSelection = prompt("Rock, Paper, Scissors, GO!").toLowerCase();
+    computerSelection = computerPlay();
 
-    if (playerSelection.toLowerCase() == computerSelection.toLowerCase()) {
+    if (playerSelection == computerSelection.toLowerCase()) {
         return str1;
-    } else if (playerSelection.toLowerCase() == "rock" && computerSelection == "Paper") {
+    } else if (playerSelection == "rock" && computerSelection == "Paper") {
         return str2;
-    } else if (playerSelection.toLowerCase() == "rock" && computerSelection == "Scissors") {
+    } else if (playerSelection == "rock" && computerSelection == "Scissors") {
         return str6;
-    } else if (playerSelection.toLowerCase() == "paper" && computerSelection == "Rock") {
+    } else if (playerSelection == "paper" && computerSelection == "Rock") {
         return str5;
-    } else if (playerSelection.toLowerCase() == "paper" && computerSelection == "Scissors") {
+    } else if (playerSelection == "paper" && computerSelection == "Scissors") {
         return str4;
-    } else if (playerSelection.toLowerCase() == "scissors" && computerSelection == "Paper") {
+    } else if (playerSelection == "scissors" && computerSelection == "Paper") {
         return str7;
-    } else if (playerSelection.toLowerCase() == "scissors" && computerSelection == "Rock") {
+    } else if (playerSelection == "scissors" && computerSelection == "Rock") {
         return str3;
     }
 }
@@ -45,31 +47,30 @@ function game() {
     let playerScore = 0;
     let compScore = 0;
     const victory = "You Won the Game! The Computer Lost!";
-    const defeat = "You Lost the Game! The Computer ";
-    const roundUpdateW = "You Won! The score is " + playerScore + " - " + compScore + " ";
-    const roundUpdateL = "You Lost! The score is " + playerScore + " - " + compScore + " ";
-    let playerSelection = prompt("Rock, Paper or Scissors?");
-    
-    for (let i = 0; i < 5; i++) {
-        if (playRound() === str1) {
-            i--;
-        } else if (playRound() === str2 || str3 || str4) {
-            compScore++;
-            console.log(roundUpdateL);
-        } else {
-            playerScore++;
-            console.log(roundUpdateW);
-        }
+    const defeat = "You Lost the Game! The Computer Won!";
 
-        if (playerScore == 3) {
-            console.log(victory);
-            break;
-        } else {
-            console.log(defeat);
-            break;
+    for (let i = 0; i < 5; i++) {
+        let result = playRound();
+
+        if (result === str1) {
+            i--;
+            console.log("Tie! The score is " + playerScore + " - " + compScore + " ");
+            continue;
+        } else if (result == str2 || result == str3 || result == str4) {
+            compScore++;
+            console.log("You Lost! The score is " + playerScore + " - " + compScore + " ");
+            continue;
+        } else if (result == str5 || result == str6 || result == str7) {
+            playerScore++;
+            console.log("You Won! The score is " + playerScore + " - " + compScore + " ");
         }
+    }
+
+    if (playerScore >= 3) {
+        console.log(victory);
+    } else {
+        console.log(defeat);
     }
 }
 
-const computerSelection = computerPlay();
-//console.log(playRound(playerSelection, computerSelection));
+console.log(game());
