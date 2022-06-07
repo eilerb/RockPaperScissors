@@ -48,29 +48,6 @@ function game() {
     let compScore = 0;
     const victory = 'You Won the Game! The Computer Lost!';
     const defeat = 'You Lost the Game! The Computer Won!';
-
-    for (let i = 0; i < 5; i++) {
-        let result = playRound();
-
-        if (result === str1) {
-            i--;
-            console.log(`Tie! The score is ${playerScore} - ${compScore}`);
-            continue;
-        } else if (result == str2 || result == str3 || result == str4) {
-            compScore++;
-            console.log(`You Lost! The score is ${playerScore} - ${compScore}`);
-            continue;
-        } else if (result == str5 || result == str6 || result == str7) {
-            playerScore++;
-            console.log(`You Won! The score is ${playerScore} - ${compScore}`);
-        }
-    }
-
-    if (playerScore >= 3) {
-        console.log(victory);
-    } else {
-        console.log(defeat);
-    }
 }
 
 console.log(game());
