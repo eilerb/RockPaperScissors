@@ -23,10 +23,6 @@ const str6 = 'You Win! Rock beats Scissors';
 const str7 = 'You Win! Scissors beat Paper';
 
 const btn = document.querySelectorAll('button');
-btn.forEach(btn => {
-    playerSelection = btn.getAttribute('class');
-    btn.addEventListener('click', playRound)
-});
 
 function playRound(playerSelection, computerSelection) {
     computerSelection = computerPlay();
@@ -51,8 +47,35 @@ function playRound(playerSelection, computerSelection) {
 function game() {
     let playerScore = 0;
     let compScore = 0;
-    const victory = 'You Won the Game! The Computer Lost!';
-    const defeat = 'You Lost the Game! The Computer Won!';
+    const victory = `You Won the Game! The Computer Lost! The score was ${playerScore} - ${compScore}`;
+    const defeat = `You Lost the Game! The Computer Lost! The score was ${compScore} - ${playerScore}`;
+    let winner = false;
+
+    while (!winner) {
+        let result = btn.forEach(btn => {
+            playerSelection = btn.getAttribute('class');
+            btn.addEventListener('click', playRound)
+        });
+
+        const score = document.querySelector('score');
+
+        if (result === str1) {
+            score.textContent = `Tie! The score is ${playerScore} - ${compScore}`;
+        } else if (result === str2 || result === str3 || result === str4) {
+            compScore++;
+            score.textContent = `You Lost! The score is ${playerScore} - ${compScore}`;
+        } else if (result === str5 || result === str6 || result === str7) {
+            playerScore++;
+            score.textContent = `You won! The score is ${playerScore} - ${compScore}`;
+        }
+
+        if (playerScore === 5) {
+            score.textContent = victory;
+            winner = true;
+        } else if (compScore === 5) {
+            score.textContent = defeat;
+            winner = true;
+        }
+    }
 }
 
-console.log(game());
