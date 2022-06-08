@@ -22,8 +22,13 @@ const str5 = 'You Win! Paper beats Rock';
 const str6 = 'You Win! Rock beats Scissors';
 const str7 = 'You Win! Scissors beat Paper';
 
+const btn = document.querySelectorAll('button');
+btn.forEach(btn => {
+    playerSelection = btn.getAttribute('class');
+    btn.addEventListener('click', playRound)
+});
+
 function playRound(playerSelection, computerSelection) {
-    playerSelection = prompt('Rock, Paper, Scissors, GO!').toLowerCase();
     computerSelection = computerPlay();
 
     if (playerSelection == computerSelection) {
