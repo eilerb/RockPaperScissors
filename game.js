@@ -22,19 +22,21 @@ function computerPlay() {
 // const str6 = 'You Win! Rock beats Scissors';
 // const str7 = 'You Win! Scissors beat Paper';
 
-const score = document.querySelector('score');
+const score = document.querySelector('.score');
+const result = document.querySelector('.result');
 let playerScore = 0;
 let compScore = 0;
-const victory = `You Won the Game! The Computer Lost! The score was ${playerScore} - ${compScore}`;
-const defeat = `You Lost the Game! The Computer Lost! The score was ${compScore} - ${playerScore}`;
 
 const btn = document.querySelectorAll('button');
-let result = btn.forEach(btn => {
-    playerSelection = btn.getAttribute('class');
-    btn.addEventListener('click', playRound)
-});
 
-score.textContent = `${playerScore} - ${compScore}`;
+if (playerScore < 5 || compScore < 5) {
+    let round = btn.forEach(btn => {
+        playerSelection = btn.getAttribute('class');
+        btn.addEventListener('click', playRound)
+    });
+}
+
+score.textContent = '0 - 0';
 
 function playRound() {
     computerSelection = computerPlay();
@@ -55,11 +57,13 @@ function playRound() {
         compScore++;
     }
 
+    score.textContent = `${playerScore} - ${compScore}`;
+    
     if (playerScore === 5) {
-        score.textContent = victory;
+        result.textContent = `You Won the Game!`;
         winner = true;
     } else if (compScore === 5) {
-        score.textContent = defeat;
+        result.textContent = `You Lost the Game!`
         winner = true;
     }
 }
