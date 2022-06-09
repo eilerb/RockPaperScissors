@@ -25,12 +25,11 @@ function computerPlay() {
     }
 }
 
-if (playerScore < 5 && compScore < 5) {
-    btn.forEach(btn => {
-        playerSelection = btn.getAttribute('class');
-        btn.addEventListener('click', playRound)
-    });
-}
+btn.forEach(btn => {
+    playerSelection = btn.getAttribute('class');
+    btn.addEventListener('click', playRound)
+});
+
 
 function playRound() {
     computerSelection = computerPlay();
@@ -65,5 +64,12 @@ function playRound() {
     } else if (compScore === 5) {
         result.textContent = `You Lost the Game!`
         winner = true;
+    }
+
+    if (playerScore === 5 || compScore === 5) {
+        btn.forEach(btn => {
+            playerSelection = btn.getAttribute('class');
+            btn.removeEventListener('click', playRound)
+        });
     }
 }
