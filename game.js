@@ -7,6 +7,7 @@ const sbp = 'Scissors beats Paper!';
 let playerScore = 0;
 let compScore = 0;
 score.textContent = '0 - 0';
+result.textContent = 'Rock Paper Scissors!'
 
 function computerPlay() {
     let a = 'rock';
@@ -24,7 +25,7 @@ function computerPlay() {
     }
 }
 
-if (playerScore < 5 || compScore < 5) {
+if (playerScore < 5 && compScore < 5) {
     btn.forEach(btn => {
         playerSelection = btn.getAttribute('class');
         btn.addEventListener('click', playRound)
