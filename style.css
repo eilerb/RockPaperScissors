@@ -1,7 +1,24 @@
+body {
+    background-image: url(rps.png);
+}
+
 .container {
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    gap: 10px;
+}
+
+.result {
+    height: 40px;
+}
+
+.text, .choices {
+    display: flex;
+}
+
+.choices {
+    gap: 10px;
 }
