@@ -4,6 +4,13 @@ body {
     background-image: url(rps.png);
     background-color: azure;
     font-family: 'Aclonica', sans-serif;
+    margin: none;
+}
+
+#wrapper {
+    margin-left:auto;
+    margin-right:auto;
+    width:960px;
 }
 
 .container {
