@@ -1,6 +1,9 @@
 const score = document.querySelector('.score');
 const result = document.querySelector('.result');
 const btn = document.querySelectorAll('button');
+const pbr = 'Paper beats Rock!';
+const rbs = 'Rock beats Scissors!';
+const sbp = 'Scissors beats Paper!';
 let playerScore = 0;
 let compScore = 0;
 score.textContent = '0 - 0';
@@ -32,19 +35,25 @@ function playRound() {
     computerSelection = computerPlay();
 
     if (playerSelection === computerSelection) {
-
+        result.textContent = 'Tie!';
     } else if (playerSelection === 'rock' && computerSelection === 'paper') {
         compScore++;
+        result.textContent = pbr;
     } else if (playerSelection === 'rock' && computerSelection === 'scissors') {
         playerScore++;
+        result.textContent = rbs;
     } else if (playerSelection === 'paper' && computerSelection === 'rock') {
         playerScore++;
+        result.textContent = pbr;
     } else if (playerSelection === 'paper' && computerSelection === 'scissors') {
         compScore++;
+        result.textContent = sbp;
     } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
         playerScore++;
+        result.textContent = sbp;
     } else if (playerSelection === 'scissors' && computerSelection === 'rock') {
         compScore++;
+        result.textContent = rbs;
     }
 
     score.textContent = `${playerScore} - ${compScore}`;
