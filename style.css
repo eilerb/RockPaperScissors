@@ -1,5 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Aclonica&display=swap');
+
 body {
     background-image: url(rps.png);
+    background-color:azure;
+    font-family: 'Aclonica', sans-serif;
 }
 
 .container {
@@ -12,7 +16,7 @@ body {
 }
 
 .result {
-    height: 40px;
+    height: 50px;
 }
 
 .text, .choices {
@@ -22,3 +26,27 @@ body {
 .choices {
     gap: 10px;
 }
+
+.score {
+    font-size: 72px;
+    margin-bottom: 20px;
+}
+
+.text {
+    flex-direction: column;
+}
+
+.rock {
+    background-image: url(rock.png);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    /* put the height and width of your image here */
+    height: 50px;
+    width: 200px;
+    border: none;
+  }
+  
+  .rock span {
+    display: none;
+  }
+
