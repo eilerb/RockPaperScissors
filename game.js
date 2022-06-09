@@ -22,7 +22,7 @@ function computerPlay() {
 }
 
 if (playerScore < 5 || compScore < 5) {
-    let round = btn.forEach(btn => {
+    btn.forEach(btn => {
         playerSelection = btn.getAttribute('class');
         btn.addEventListener('click', playRound)
     });
